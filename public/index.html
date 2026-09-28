@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codveda - Gestion de Produits</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gestion de Produits</h1>
+
+    <form id="product-form">
+      <input type="hidden" id="product-id">
+      <input type="text" id="name" placeholder="Nom du produit" required>
+      <input type="number" id="price" step="0.01" placeholder="Prix" required>
+      <input type="number" id="quantity" placeholder="Quantité" required>
+      <button type="submit" id="submit-btn">Ajouter</button>
+      <button type="button" id="cancel-btn" style="display:none;">Annuler</button>
+    </form>
+
+    <div id="products-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
