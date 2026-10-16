@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect, FormEvent } from 'react';
+import LivePanel from './LivePanel';
 
-const API = 'http://localhost:5000/api';
+const BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const API = `${BASE}/api`;
 
 type Category = { id: number; name: string };
 type Product = {
@@ -51,7 +53,7 @@ export default function Home() {
       setProducts(Array.isArray(p) ? p : []);
       setCategories(Array.isArray(c) ? c : []);
     } catch {
-      setMessage('Impossible de joindre le serveur API.');
+      setMessage('Impossible de joindre le serveur API (il est peut-être en veille, réessaie dans une minute).');
     } finally {
       setLoading(false);
     }
@@ -152,6 +154,8 @@ export default function Home() {
   return (
     <main className="max-w-2xl mx-auto p-8">
       <h1 className="text-2xl font-bold mb-6">Gestion de Produits</h1>
+
+      <LivePanel token={token} user={user} setProducts={setProducts} />
 
       {message && (
         <p className="mb-4 rounded bg-red-100 text-red-700 px-3 py-2 text-sm">{message}</p>
