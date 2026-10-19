@@ -186,7 +186,7 @@ export default function Home() {
           <button
             type="button"
             onClick={handleSignup}
-            className="bg-gray-200 px-4 py-2 rounded font-semibold"
+            className="black px-4 py-2 rounded font-semibold"
           >
             Inscription
           </button>
@@ -196,7 +196,7 @@ export default function Home() {
           <span>
             Connecté : <strong>{user.email}</strong> ({user.role})
           </span>
-          <button onClick={handleLogout} className="bg-gray-200 px-3 py-1 rounded">
+          <button onClick={handleLogout} className="black px-3 py-1 rounded">
             Déconnexion
           </button>
         </div>
